@@ -3381,12 +3381,6 @@
                       因为变量更新规则里有推进剧情所需的信息，推进文本的LLM需要同时看到这些信息，否则剧情和变量会跑偏。<br/>
                       “可是如果不开额外模型解析，模型太区了怎么办？” 只有天知道……
                     </p>
-                    <p>
-                      <span class="h1">5.存档须知</span><br/>
-                      很遗憾，本卡<span style="color: red;">不支持多个聊天</span>。<br/>
-                      由于本卡使用的变量设计，开启多个存档会造成数据紊乱。<br/>
-                      <span style="color: red;">此过程带来的问题无法恢复。</span>
-                    </p>
                   </div>
                 </div>
                 <div class="tab9-subpage" id="manual-tips">
@@ -3464,7 +3458,9 @@
             <div class="tab-page" id="tab-10">
               <div class="save-notice">
                 <p class="save-notice-line">1. 该存档保存的是物品、事件、CG 等数据记录，不是对话进度。</p>
-                <p class="save-notice-line">2. 切换存档时，必须使用本存档功能中的「读取」，该读取功能包含了自动切换聊天文件的功能。<strong>禁止使用酒馆原生功能中的聊天切换功能。</strong></p>
+                <p class="save-notice-line">2. 该存档根据文件名绑定。因此当文件名变更时，需要重新存档。</p>
+                <p class="save-notice-line">3. 创建新存档时，请使用酒馆的开始新聊天，或管理聊天文件-新聊天，并创建新文件。</p>
+                <p class="save-notice-line">4. 切换已有的存档时，必须使用本存档功能中的「读取」，该读取功能包含了自动切换聊天文件的功能。<strong>禁止使用酒馆原生功能中的聊天切换功能。</strong></p>
               </div>
               <div class="save-grid" id="save-grid">
                 <!-- 存档栏位由 JS 生成 -->
@@ -6740,7 +6736,7 @@
 
           // 切换聊天文件
           await window.parent.SillyTavern.getContext().openCharacterChat(savedirName);
-          toastr.success(`已读取存档 ${slotId}`);
+          toastr.success(`已读取存档 ${slotId}，请关闭状态栏`);
         } catch (e) {
           console.error('读取存档失败:', e);
           toastr.error('读取存档失败');
